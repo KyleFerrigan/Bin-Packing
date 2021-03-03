@@ -4,6 +4,8 @@ import java.util.ArrayList;
 //TODO sorts disks by size remaining using PQ
 //TODO Start with single disk: Put biggest files into the disks until all current disks cant fit anymore then make a new disk
 public class WorstFit {
+
+
     public static void main(String args[]) throws IOException {
         ArrayList sorted;//holds sorted integers
         int pos = 0; //current position within the sorted number to distribute into disks
@@ -26,7 +28,7 @@ public class WorstFit {
                 ((Disk) newDisk).addFile((Integer) sorted.get(pos));
                 pos++;
                 mainQueue.insert(newDisk);
-                while (tempQueue.isEmpty()==false){
+                while (!tempQueue.isEmpty()){
                     mainQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
                 }
             }
@@ -41,5 +43,13 @@ public class WorstFit {
                 tempQueue.insert(mainQueue.delMax());
             }
         }
+
+        System.out.println("Number of Disks: " + (diskNo-1));
+        while (!mainQueue.isEmpty()) {
+            System.out.println(((Disk) mainQueue.max()).getDiskID() + " " + ((Disk) mainQueue.max()).getSizeRemaining() + ": " + ((Disk) mainQueue.delMax()).getFileSizesString());
+        }
+
+
+
     }
 }
