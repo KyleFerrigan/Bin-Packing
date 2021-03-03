@@ -9,46 +9,36 @@ public class WorstFit {
         int pos = 0; //current position within the sorted number to distribute into disks
         int diskNo = 1; //disk number incrementer
 
-
         //Sort incoming integers
         IntegerSorter intSort = new IntegerSorter();
         sorted = intSort.sortDecrease();
-        
         int size = sorted.size();//makes code look cleaner and more easily understood
 
-        //Insert first number into Disk
-        Object insertDisk = new Disk(diskNo);//TODO what does object do to the disk class?
-        diskNo++;
-        ((Disk) insertDisk).addFile((Integer) sorted.get(pos));
-        pos++;
-
-        //Insert disk into Priority Queue
-        MaxPQ priorQueue = new MaxPQ(size);
-        priorQueue.insert(insertDisk);
-
+        //Init Priority Queue's
+        MaxPQ mainQueue = new MaxPQ(size);
         MaxPQ tempQueue = new MaxPQ(size);
 
         //TODO Keep inserting number into the most filled disk possible, if not possible make a new disk
         while (pos < size){
-            if(priorQueue.isEmpty()){//if main Queue is empty make new disk as it means no disks were big enough
+            if(mainQueue.isEmpty()){//if main Queue is empty make new disk as it means no disks were big enough
                 Object newDisk = new Disk(diskNo);
                 diskNo++;
                 ((Disk) newDisk).addFile((Integer) sorted.get(pos));
                 pos++;
-                priorQueue.insert(newDisk);
+                mainQueue.insert(newDisk);
                 while (tempQueue.isEmpty()==false){
-                    priorQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
+                    mainQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
                 }
             }
-            if (((Disk)(priorQueue.max())).getSizeRemaining() >= (Integer) sorted.get(pos)){
-                ((Disk)(priorQueue.max())).addFile((Integer) sorted.get(pos));
+            if (((Disk)(mainQueue.max())).getSizeRemaining() >= (Integer) sorted.get(pos)){ //check the top entry prior queue and sees if we can insert it
+                ((Disk)(mainQueue.max())).addFile((Integer) sorted.get(pos));
                 pos++;
                 while (!tempQueue.isEmpty()){
-                    priorQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
+                    mainQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
                 }
             }
-            else{
-                tempQueue.insert(priorQueue.delMax());
+            else{ //if we cant insert our file into the max size of
+                tempQueue.insert(mainQueue.delMax());
             }
         }
     }
