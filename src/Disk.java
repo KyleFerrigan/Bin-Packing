@@ -29,7 +29,7 @@ public class Disk implements Comparable<Disk>{
         return sizeRemaining;
     }
 
-    public String getFileSizesString(){ //returns all individual files sizes as string
+    public String getFileSizesString(){ //returns all individual files sizes as string for easy printout
         String temp = "";
         for (int i=0; i < filesArray.size(); i++){
             temp = temp + filesArray.get(i) + " ";
@@ -38,7 +38,7 @@ public class Disk implements Comparable<Disk>{
     }
 
     public void addFile(int fileSizeIn){
-        filesArray.add(fileSizeIn);
-        sizeRemaining = sizeRemaining - fileSizeIn;
+        filesArray.add(fileSizeIn); //adds in the integer "file"
+        sizeRemaining = sizeRemaining - fileSizeIn; //removes the filesize from the size remaining so it stays accurate
     }
 }
