@@ -15,11 +15,7 @@ public class IntegerSorter {
     File file = new File("input20.txt");
     ArrayList<Integer> arr = new ArrayList<>();
     
-    public IntegerSorter(){
-        
-    }
-    
-    public void ScanTxtFile() throws IOException {
+    public IntegerSorter() throws IOException{
         try{
             Scanner scan = new Scanner(file);
             while (scan.hasNext()){
@@ -34,6 +30,6 @@ public class IntegerSorter {
 
     public ArrayList<Integer> sort(){
         Collections.sort(arr, Collections.reverseOrder()); //Sorts the arraylist in descending order
-        return this.arr;
+        return arr;
     }
 }
