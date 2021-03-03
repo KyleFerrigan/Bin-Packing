@@ -9,14 +9,16 @@ import java.util.Scanner;
 //Then you can pipe the results through your worst-fit heuristic.
 public class IntegerSorter { //TODO sort list from biggest to smallest
 
-    public int[] Integersorter(){
+    public void Integersorter(){
+
         File file = new File("input20.txt");
-        double fSize = file.length();
+        int fSize = (int)file.length();
+        int[] inputFile = new int[fSize];
+
         try{
             Scanner scan = new Scanner(file);
-            while (scan.hasNextLine()){
-                int[] digit = scan.nextInt();
-                System.out.println(digit);
+            for (int i = 0; scan.hasNextLine(); i++){
+                inputFile[i] = scan.nextInt();
             }
             scan.close();
         }
@@ -24,8 +26,5 @@ public class IntegerSorter { //TODO sort list from biggest to smallest
                 FileNotFoundException e){
             System.out.println(e);
         }
-        return
     }
-
-
 }
