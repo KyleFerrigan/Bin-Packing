@@ -11,7 +11,8 @@ public class WorstFit {
 
         //Sort incoming integers
         IntegerSorter intSort = new IntegerSorter(); //Constructs IntegerSorter
-        sorted = intSort.sortDecrease();//Sorts integers into the arrayList
+        sorted = intSort.getUnsorted(); //initializes size of sorted
+        //sorted = intSort.sortDecrease();//Sorts integers into the arrayList
 
         int size = sorted.size();//makes code look cleaner and more easily understood
 
@@ -34,7 +35,7 @@ public class WorstFit {
                     mainQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
                 }
             }
-            if (((Disk)(mainQueue.max())).getSizeRemaining() >= (Integer)sorted.get(pos)){ //check the top entry in the main queue and sees if we can insert it without going over size limit
+            else if (((Disk)(mainQueue.max())).getSizeRemaining() >= (Integer)sorted.get(pos)){ //check the top entry in the main queue and sees if we can insert it without going over size limit
                 ((Disk)(mainQueue.max())).addFile((Integer)sorted.get(pos));//insert into disk currently on top of main queue
                 pos++;//increment pos as we have added the "file" into a Disk
 
