@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class WorstFit {
     public static void main(String args[]) throws IOException {
         ArrayList sorted;//holds sorted integers
-        int pos = 0; //current sorted position
-        int diskNo = 1; //disknumber incrementer
+        int pos = 0; //current position within the sorted number to distribute into disks
+        int diskNo = 1; //disk number incrementer
 
 
         //Sort incoming integers
@@ -26,12 +26,30 @@ public class WorstFit {
         MaxPQ priorQueue = new MaxPQ(size);
         priorQueue.insert(insertDisk);
 
+        MaxPQ tempQueue = new MaxPQ(size);
+
         //TODO Keep inserting number into the most filled disk possible, if not possible make a new disk
         while (pos < size){
+            if(priorQueue.isEmpty()){//if main Queue is empty make new disk as it means no disks were big enough
+                Object newDisk = new Disk(diskNo);
+                diskNo++;
+                ((Disk) newDisk).addFile((Integer) sorted.get(pos));
+                pos++;
+                priorQueue.insert(newDisk);
+                while (tempQueue.isEmpty()==false){
+                    priorQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
+                }
+            }
             if (((Disk)(priorQueue.max())).getSizeRemaining() >= (Integer) sorted.get(pos)){
                 ((Disk)(priorQueue.max())).addFile((Integer) sorted.get(pos));
+                pos++;
+                while (!tempQueue.isEmpty()){
+                    priorQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
+                }
             }
-
+            else{
+                tempQueue.insert(priorQueue.delMax());
+            }
         }
     }
 }

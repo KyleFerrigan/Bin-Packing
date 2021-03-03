@@ -10,7 +10,7 @@ public class Disk implements Comparable<Disk>{
     public Disk(int diskIDIn){ // input the DiskID & the max number of files so we can set the size of filesArray
         diskID = diskIDIn; //set diskID
         sizeRemaining = 1000000; //1GB
-        filesArray = new ArrayList();
+        filesArray = new ArrayList(); //initialize arrayList
 
     }
 
