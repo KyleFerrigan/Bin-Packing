@@ -18,7 +18,7 @@ public class WorstFit {
 
         //Initialize Priority Queue's
         MaxPQ mainQueue = new MaxPQ(size);
-        MaxPQ tempQueue = new MaxPQ(size);//used as a temporary cache as things are taken off the main queue if the current file doesnt fit on the main queue
+        MaxPQ tempQueue = new MaxPQ(size);//used as a temporary cache as things are taken off the main queue if the current file doesn't fit on the main queue
 
         //Keep inserting number into the most filled disk possible, if not possible make a new disk
         while (pos < size){
