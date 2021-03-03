@@ -11,8 +11,8 @@ public class WorstFit {
 
         //Sort incoming integers
         IntegerSorter intSort = new IntegerSorter(); //Constructs IntegerSorter
-        sorted = intSort.getUnsorted(); //initializes size of sorted
-        //sorted = intSort.sortDecrease();//Sorts integers into the arrayList
+        //sorted = intSort.getUnsorted(); //initializes size of sorted
+        sorted = intSort.sortDecrease();//Sorts integers into the arrayList
 
         int size = sorted.size();//makes code look cleaner and more easily understood
 
