@@ -12,10 +12,10 @@ import java.util.Scanner;
 //Then you can pipe the results through your worst-fit heuristic.
 
 public class IntegerSorter {
-    File file = new File("input20.txt");
+    File file = new File("input20.txt"); //Change file name for testing
     ArrayList<Integer> arr = new ArrayList<>();
     
-    public IntegerSorter() throws IOException{
+    public IntegerSorter() throws IOException { //Scan in the file as an arraylist
         try{
             Scanner scan = new Scanner(file);
             while (scan.hasNext()){
@@ -28,8 +28,8 @@ public class IntegerSorter {
         }
     }
 
-    public ArrayList<Integer> sort(){
-        Collections.sort(arr, Collections.reverseOrder()); //Sorts the arraylist in descending order
+    public ArrayList<Integer> sortDecrease(){ //Sorts the arraylist in descending order
+        Collections.sort(arr, Collections.reverseOrder()); 
         return arr;
     }
 }
