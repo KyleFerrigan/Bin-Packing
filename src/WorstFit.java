@@ -5,16 +5,16 @@ public class WorstFit {
 
 
     public static void main(String args[]) throws IOException {
-        ArrayList sorted;//holds sorted integers
-        int pos = 0; //current position within the sorted number to distribute into disks
+        ArrayList fileInts;//holds file integers
+        int pos = 0; //current position within the fileInts to distribute into disks
         int diskNo = 0; //disk number incrementer
 
         //Sort incoming integers
         IntegerSorter intSort = new IntegerSorter(); //Constructs IntegerSorter
-        //sorted = intSort.getUnsorted(); //initializes size of sorted
-        sorted = intSort.sortDecrease();//Sorts integers into the arrayList
+        //fileInts = intSort.getUnsorted(); //Use this for having an unsorted Array, comment out line below
+        fileInts = intSort.sortDecrease();//Use this for having a sorted Array, comment out line above
 
-        int size = sorted.size();//makes code look cleaner and more easily understood
+        int size = fileInts.size();//makes code look cleaner and more easily understood
 
         //Initialize Priority Queue's
         MaxPQ mainQueue = new MaxPQ(size);
@@ -26,7 +26,7 @@ public class WorstFit {
                 Object newDisk = new Disk(diskNo);
                 diskNo++;
 
-                ((Disk)newDisk).addFile((Integer)sorted.get(pos));
+                ((Disk)newDisk).addFile((Integer)fileInts.get(pos));
                 pos++;//increment pos as we have added the "file" into a Disk
 
                 mainQueue.insert(newDisk);//insert the new disk into the main Queue
@@ -35,8 +35,8 @@ public class WorstFit {
                     mainQueue.insert(tempQueue.delMax());//flush tempQueue back into mainQueue
                 }
             }
-            else if (((Disk)(mainQueue.max())).getSizeRemaining() >= (Integer)sorted.get(pos)){ //check the top entry in the main queue and sees if we can insert it without going over size limit
-                ((Disk)(mainQueue.max())).addFile((Integer)sorted.get(pos));//insert into disk currently on top of main queue
+            else if (((Disk)(mainQueue.max())).getSizeRemaining() >= (Integer)fileInts.get(pos)){ //check the top entry in the main queue and sees if we can insert it without going over size limit
+                ((Disk)(mainQueue.max())).addFile((Integer)fileInts.get(pos));//insert into disk currently on top of main queue
                 pos++;//increment pos as we have added the "file" into a Disk
 
                 while (!tempQueue.isEmpty()){//since we added a file we must merge the queues to check the next file against all of the disks
