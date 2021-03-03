@@ -49,7 +49,7 @@ public class WorstFit {
         }
 
         //Print out Data
-        System.out.println("Sum of all files: " + (intSort.sumArray()/1000000.0) + "GB");
+        System.out.println("Sum of all files: " + (intSort.sumArray()/1000000.0) + " GB");
         System.out.println("Disks Used: " + (diskNo));
         while (!mainQueue.isEmpty()) {
             System.out.println(((Disk) mainQueue.max()).getDiskID() + " " + ((Disk) mainQueue.max()).getSizeRemaining() + ": " + ((Disk) mainQueue.delMax()).getFileSizesString()); //Diles deleted off the main queue after fetching all needed information to print
