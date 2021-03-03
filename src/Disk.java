@@ -27,7 +27,7 @@ public class Disk implements Comparable<Disk>{
 
     public int getSizeRemaining(){//getter method
         return sizeRemaining;
-    }
+    }//todo fix this so it actually calculates the current size
 
     public String getFileSizesString(){ //returns all individual files sizes as string
         String temp = "";

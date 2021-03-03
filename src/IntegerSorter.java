@@ -7,7 +7,7 @@ import java.util.Scanner;
 //The worst-fit decreasing heuristic is to do worst-fit, but first preprocess the file sizes so that they are in descending order.
 //A modular way to implement this heuristic is to write a separate program IntegerSorter.java that reads in a sequence of integers and prints them out in descending order.
 //Then you can pipe the results through your worst-fit heuristic.
-public class IntegerSorter { //TODO sort incoming integers biggest to smallest
+public class IntegerSorter { //TODO sort incoming integers biggest to smallest put into integer array
     File file = new File("input20.txt");
     int fSize = (int)file.length();
     int[] inputFile = new int[fSize];
@@ -29,5 +29,4 @@ public class IntegerSorter { //TODO sort incoming integers biggest to smallest
     public int[] sort(){
         return inputFile;
     }
-
 }
