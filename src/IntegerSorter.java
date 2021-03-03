@@ -32,4 +32,12 @@ public class IntegerSorter {
         Collections.sort(arr, Collections.reverseOrder()); 
         return arr;
     }
+    
+    public int sumArray(){
+        int sum = 0;
+        for (int i = 0; i < arr.size(); i++){
+            sum += arr.get(i);
+        }
+        return sum;
+    }
 }
