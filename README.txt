@@ -64,7 +64,7 @@ Disks Used: 9
 6 21926: 621283 356791
 2 19779: 351725 628496
 
-With the unsorted files using the worst fit heuristic our results show it uses more files than the sorted decreasing worst fit heuristic.
+With the unsorted files using the worst fit heuristic our results show it uses more files than the sorted decreasing worst fit heuristic. You can notice that it follows the insert schema when the earliest disk IDs used in the Unsorted method is reading the text file from top to bottom. With the Sorted method, we can avoid the unnessary wasted space by properly inserting the file sizes to appropiate disk IDs to maximize disk usage.
 
 
 
@@ -73,6 +73,5 @@ With the unsorted files using the worst fit heuristic our results show it uses m
  *  on how much you learned from doing the assignment, and whether    
  *  you enjoyed doing it.                                             
  *****************************************************************************/
-N/A
-
+The difference of disk space usage was interesting to visually see.
 
