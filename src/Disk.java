@@ -1,15 +1,17 @@
+import java.util.ArrayList;
+
 //First, implement a data type Disk.java that represents a 1GB disk, and contains a list of all of the files it is sorting.
 //This data type should implement the Comparable<Disk> interface so that you can use it with a priority queue.
 public class Disk implements Comparable<Disk>{
     private final int diskID;
     private int sizeRemaining;
-    private int[] filesArray;
-    private int curFileLoc;
+    private ArrayList filesArray;
 
-    public Disk(int diskIDIn, int diskSize){ // input the DiskID & the max number of files so we can set the size of filesArray
+    public Disk(int diskIDIn){ // input the DiskID & the max number of files so we can set the size of filesArray
         diskID = diskIDIn; //set diskID
         sizeRemaining = 1000000; //1GB
-        int[] filesArray = new int[diskSize]; //set to largest size possible given the amount of input nums
+        filesArray = new ArrayList();
+
     }
 
     @Override
@@ -29,15 +31,14 @@ public class Disk implements Comparable<Disk>{
 
     public String getFileSizesString(){ //returns all individual files sizes as string
         String temp = "";
-        for (int i=0; i < filesArray.length; i++){
-            temp = temp + filesArray[i] + "\n";
+        for (int i=0; i < filesArray.size(); i++){
+            temp = temp + filesArray.get(i) + "\n";
         }
         return temp;
     }
 
     public void addFile(int fileSizeIn){
-        filesArray[curFileLoc] = fileSizeIn;
-        curFileLoc++;
+        filesArray.add(fileSizeIn);
         sizeRemaining = sizeRemaining - fileSizeIn;
     }
 }

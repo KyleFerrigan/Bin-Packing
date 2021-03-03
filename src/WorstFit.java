@@ -13,11 +13,11 @@ public class WorstFit {
         //Sort incoming integers
         IntegerSorter intSort = new IntegerSorter();
         sorted = intSort.sort();
-        
+
         int size = sorted.size();//makes code look cleaner and more easily understood
 
         //Insert first number into Disk
-        Object insertDisk = new Disk(diskNo,size);//TODO what does object do to the disk class?
+        Object insertDisk = new Disk(diskNo);//TODO what does object do to the disk class?
         diskNo++;
         ((Disk) insertDisk).addFile((Integer) sorted.get(pos));
         pos++;
