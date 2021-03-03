@@ -2,8 +2,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class WorstFit {
-
-
     public static void main(String args[]) throws IOException {
         ArrayList fileInts;//holds file integers
         int pos = 0; //current position within the fileInts to distribute into disks
