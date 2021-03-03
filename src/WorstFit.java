@@ -43,13 +43,10 @@ public class WorstFit {
                 tempQueue.insert(mainQueue.delMax());
             }
         }
-
-        System.out.println("Number of Disks: " + (diskNo-1));
+        System.out.println("Sum of all files: " + (intSort.sumArray()/1000000.0) + "GB");
+        System.out.println("Disks Used: " + (diskNo-1));
         while (!mainQueue.isEmpty()) {
             System.out.println(((Disk) mainQueue.max()).getDiskID() + " " + ((Disk) mainQueue.max()).getSizeRemaining() + ": " + ((Disk) mainQueue.delMax()).getFileSizesString());
         }
-
-
-
     }
 }
