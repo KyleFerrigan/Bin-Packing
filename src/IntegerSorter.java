@@ -12,7 +12,7 @@ import java.util.Scanner;
 //Then you can pipe the results through your worst-fit heuristic.
 
 public class IntegerSorter {
-    File file = new File("input20.txt"); //Change file name for testing
+    File file = new File("input20.txt"); //Change file name for testing purposes
     ArrayList<Integer> arr = new ArrayList<>();
     
     public IntegerSorter() throws IOException { //Scan in the file as an arraylist
@@ -33,11 +33,11 @@ public class IntegerSorter {
         return arr;
     }
 
-    public ArrayList getUnsorted(){//getter for array
+    public ArrayList getUnsorted(){ //getter for array
         return arr;
     }
 
-    public int sumArray(){
+    public int sumArray(){ //sums the array
         int sum = 0;
         for (int i = 0; i < arr.size(); i++){
             sum += arr.get(i);
