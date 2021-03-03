@@ -12,7 +12,7 @@ public class WorstFit {
 
         //Sort incoming integers
         IntegerSorter intSort = new IntegerSorter();
-        sorted = intSort.sort();
+        sorted = intSort.sortDecrease();
         
         int size = sorted.size();//makes code look cleaner and more easily understood
 
