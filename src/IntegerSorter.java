@@ -34,6 +34,6 @@ public class IntegerSorter {
 
     public ArrayList<Integer> sort(){
         Collections.sort(arr, Collections.reverseOrder()); //Sorts the arraylist in descending order
-        return this.arr;
+        return arr;
     }
 }
