@@ -6,10 +6,11 @@ public class Disk implements Comparable<Disk>{
     private int[] filesArray;
     private int curFileLoc;
 
-    public Disk(int diskIDIn){ //TODO maybe also input the max number of files so we can set the size of filesArray
+    public Disk(int diskIDIn, int diskSize){ // input the DiskID & the max number of files so we can set the size of filesArray
         diskID = diskIDIn; //set diskID
         sizeRemaining = 1000000; //1GB
-        //TODO initialize filesArray Array
+        int[] filesArray = new int[diskSize];
+
     }
 
     @Override
