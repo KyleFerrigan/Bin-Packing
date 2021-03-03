@@ -32,7 +32,7 @@ public class Disk implements Comparable<Disk>{
     public String getFileSizesString(){ //returns all individual files sizes as string
         String temp = "";
         for (int i=0; i < filesArray.size(); i++){
-            temp = temp + filesArray.get(i) + "\n";
+            temp = temp + filesArray.get(i) + " ";
         }
         return temp;
     }
