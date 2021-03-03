@@ -14,14 +14,14 @@
  *  Have you taken (part of) this course before:
  *  Kyle: No; Patrick: No
  *  Hours to complete assignment (optional):
- *  TODO
+ *  6 hours each
  ******************************************************************************/
 
 Programming Assignment 2
 /******************************************************************************
  *  Known bugs / limitations.
  *****************************************************************************/
-TODO
+If a file bigger than 1GB is inserted, will cause the Disk to say it has negative size remaining.
 
 /******************************************************************************
  *  Describe whatever help (if any) that you received.
@@ -29,16 +29,16 @@ TODO
  *  include any help from people (including
  *  classmates and friends) and attribute them by name.
  *****************************************************************************/
- TODO
+N/A
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    
  *****************************************************************************/
- TODO
+ How to properly implement MaxPQ
 
 /******************************************************************************
  *  List any other comments here. Feel free to provide any feedback   
  *  on how much you learned from doing the assignment, and whether    
  *  you enjoyed doing it.                                             
  *****************************************************************************/
-TODO
+N/A
